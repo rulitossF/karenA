@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Números Aleatorios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: wheat; /* Cambia el color de fondo a uno llamativo */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #ffffff; /* Cambia el color de fondo del contenedor */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        #logo {
+            max-width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        #number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        button {
+            font-size: 18px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+            animation: moveName 5s linear infinite alternate; /* Agrega una animación para mover tu nombre */
+        }
+
+        @keyframes moveName {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(100px); /* Cambia la distancia que tu nombre se mueve de un lado a otro */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://isanagustin.edu.pe/portal/" target="_blank">
+            <img id="logo" src="sa.png" alt="Logo">
+        </a>
+        <h1> Números Aleatorios</h1>
+        <p>Número actual:</p>
+        <div id="number">0</div>
+        <button id="startButton" onclick="startSorteo()">Iniciar</button>
+        <button id="stopButton" onclick="stopSorteo()" disabled>Detener</button>
+    </div>
+
+    <h2>KAREN CASTILLO FERNANDEZ</h2>
+
+    <script>
+        let intervalId;
+
+        function startSorteo() {
+            document.getElementById('startButton').disabled = true;
+            document.getElementById('stopButton').disabled = false;
+            
+            intervalId = setInterval(function() {
+                const numeroAleatorio = Math.floor(Math.random() * 30) + 1;
+                document.getElementById('number').textContent = numeroAleatorio;
+            }, 1000);
+        }
+
+        function stopSorteo() {
+            document.getElementById('startButton').disabled = false;
+            document.getElementById('stopButton').disabled = true;
+            
+            clearInterval(intervalId);
+        }
+    </script>
+</body>
+</html>
+
